@@ -1,0 +1,141 @@
+<!Doctype html>
+<Html>
+    <head>
+        <Title>Unit convertor</Title>
+        <style>
+            body{
+                background-image: url("temperature-converter.webp");
+                background-size: 100%;
+                font: arial;
+                font-weight: bold;
+                font-size: 50px;
+                background-repeat:no-repeat;
+                color:white;
+            }
+            table, td {
+                border: 5px solid transparent;
+                 border-collapse: collapse;
+                 background-color: transparent;
+                 opacity: 1;
+             }
+             .writting-space{
+               padding: 15px;
+               margin: 15px;
+               background-color: aqua;
+               font-weight: bold;
+               border-radius: 30px;
+             }
+             .select-design{
+                padding-right: 90px;
+                margin-left: 15px;
+                border-radius: 30px;
+                background-color: black;
+                color: aliceblue;
+                padding: 15px;
+                font-weight: bold;
+             }
+             .design-convert{
+               padding: 20px;
+               background-color: blue;
+               color:aliceblue;
+               font-weight: bold;
+               border: none;
+               border-radius: 40px;
+             }
+
+        </style>
+    </head>
+    <body>
+        <h1 align="center">UNIT <br> CONVERTOR</h1>
+        <center>
+            <table>
+        <tr>
+          <td><input placeholder="Input" id="input" class="writting-space" onkeydown="
+            console.log('Typing...');
+            console.log(event.key)
+            if(event.key==='Enter')
+            {
+                process();
+            }"></td>
+       
+         <td><input placeholder="Output" id="output" class="writting-space"></td>
+        </tr> 
+        <tr>
+            <td> <Select id="Inputid" class="select-design">
+                <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+           <option value="fahrenheit">Fahrenheit</option>
+        </Select>
+    </td>
+    <td>
+    <select id="Outputid" class="select-design">
+        <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+           <option value="fahrenheit">Fahrenheit</option>
+        </select>
+    </td></tr>
+   <tr><td colspan="2"><center><button onclick="process()" class="design-convert" >Convert</button></td></tr> 
+    <script>
+         var input= document.getElementById('input');
+         var output= document.getElementById('output');
+         var inputid= document.getElementById('Inputid');
+         var outputid= document.getElementById('Outputid');
+        
+
+        function process(){
+            var inputValue = inputid.value;
+            var outputValue= outputid.value;
+            if(inputValue === "celsius" && outputValue ==="kelvin")
+        {
+        
+         output.value = (Number(input.value) + 273.15);
+        }
+        else if(inputValue === "celsius" && outputValue==="fahrenheit")
+        {
+        
+        output.value = (Number(input.value)*0.56) + 32;
+        }
+        else if(inputValue === "celsius" && outputValue==="celsius")
+        {
+        
+       output.value = input.value
+        }
+        if(inputValue === "kelvin" && outputValue ==="celsius")
+        {
+        
+         output.value = (Number(input.value) - 273.15);
+        }
+        else if(inputValue === "kelvin" && outputValue==="fahrenheit")
+        {
+        
+        output.value = (Number(input.value) - 273.15) * (0.56) + 32;
+        }
+        
+        else if(inputValue === "kelvin" && outputValue==="kelvin")
+        {
+        
+       output.value = input.value
+        }
+       
+        if(inputValue === "fahrenheit" && outputValue ==="celsius")
+        {
+        
+         output.value = (Number(input.value) - 32) * (0.56);
+        }
+        else if(inputValue === "fahrenheit" && outputValue==="kelvin")
+        {
+        
+        output.value = (Number(input.value) - 32)*(0.56) + 273.15;
+        }
+        else if(inputValue === "fahrenheit" && outputValue==="fahrenheit")
+        {
+        
+       output.value = input.value
+        }
+
+    }
+
+</script>
+    </body>
+</Html>
+    
